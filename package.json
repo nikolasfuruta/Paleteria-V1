@@ -10,10 +10,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
     "eslint": "^8.14.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "git-commit-msg-linter": "^4.1.2",
     "husky": "^4.3.8",
     "lint-staged": "^12.4.0",
     "prettier": "^2.6.2"
