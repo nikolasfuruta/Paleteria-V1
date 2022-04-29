@@ -2,7 +2,7 @@ const PaletasService = require('../services/paletas-service')
 
 const findAll = async (req, res) => {
   try {
-    const result = await PaletasService.findAll
+    const result = await PaletasService.findAll()
     res.status(200).send(result)
   } catch (err) {
     console.error(err)

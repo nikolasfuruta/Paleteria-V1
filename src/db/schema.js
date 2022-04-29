@@ -1,4 +1,4 @@
-const mongoose = require(mongoose)
+const mongoose = require('mongoose')
 
 const PaletasSchema = new mongoose.Schema({
   sabor: { type: String, required: true },
