@@ -13,6 +13,7 @@ const validObjectBody = (req, res, next) => {
   if (!info || !info.sabor || !info.descricao || !info.foto || !info.preco) {
     return res.status(400).send({ message: 'Erro na informação passada' })
   }
+  next()
 }
 
 module.exports = { validId, validObjectBody }

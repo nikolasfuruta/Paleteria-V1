@@ -3,61 +3,48 @@ const paletas = require('../db/schema')
 const findAll = async () => {
   try {
     const res = await paletas.find()
-    if (!res) {
-      throw new Error({ message: 'Paletas não encontradas' })
-    } else {
-      return res
-    }
+    return res
   } catch (e) {
-    throw new Error({ message: 'Erro no bd' })
+    return { message: 'Paletas não encontradas' }
   }
 }
 
 const findOne = async (id) => {
   try {
     const res = await paletas.findById(id)
-    if (!res) {
-      throw new Error({ message: 'Paleta não encontrada' })
-    } else {
-      return res
-    }
+    return res
   } catch (e) {
-    throw new Error({ message: 'Erro no bd' })
+    return { message: 'Paleta não encontrada' }
   }
 }
 
 const create = async (info) => {
   try {
-    const res = await paletas.create(info)
-    if (!res) {
-      throw new Error({ message: 'Paleta não adicionada' })
-    } else {
-      return res
-    }
+    await paletas.create(info)
+    return info
   } catch (e) {
-    throw new Error({ message: 'Erro no bd' })
+    throw new Error({ message: 'Paleta não criado' })
   }
 }
 
 const update = async (id, info) => {
   try {
-    const res = await paletas.update(id, info)
-    if (!res) {
-      throw new Error({ message: 'Paleta não alterada' })
-    } else {
-      return res
-    }
+    const res = await paletas.updateOne(id, info)
+    return res
   } catch (e) {
-    throw new Error({ message: 'Erro no bd' })
+    return { message: 'Paleta não alterada' }
   }
 }
 
 const remove = async (id) => {
   try {
-    const res = await paletas.remove(id)
-    return res
+    const res = await paletas.deleteOne({ _id: id })
+    if (res) {
+      return { message: 'Paleta deletado' }
+    }
   } catch (e) {
-    throw new Error({ message: 'Paleta não deletada' })
+    console.error(e)
+    return { message: 'Paleta não deletada' }
   }
 }
 

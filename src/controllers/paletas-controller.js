@@ -6,7 +6,7 @@ const findAll = async (req, res) => {
     res.status(200).send(result)
   } catch (err) {
     console.error(err)
-    res.status(403).send({ message: 'Erro' })
+    res.status(403).send({ message: err })
   }
 }
 
@@ -17,7 +17,7 @@ const findOne = async (req, res) => {
     res.status(200).send(result)
   } catch (err) {
     console.error(err)
-    res.status(403).send({ message: 'Erro' })
+    res.status(403).send({ message: err })
   }
 }
 
@@ -25,10 +25,10 @@ const create = async (req, res) => {
   const info = req.body
   try {
     const result = await PaletasService.create(info)
-    res.status(200).send(result)
+    res.status(201).send(result)
   } catch (err) {
     console.error(err)
-    res.status(403).send({ message: 'Erro' })
+    res.status(403).send({ message: err })
   }
 }
 
@@ -40,7 +40,7 @@ const update = async (req, res) => {
     res.status(200).send(result)
   } catch (err) {
     console.error(err)
-    res.status(403).send({ message: 'Erro' })
+    res.status(403).send({ message: err })
   }
 }
 
@@ -51,7 +51,7 @@ const remove = async (req, res) => {
     res.status(200).send(result)
   } catch (err) {
     console.error(err)
-    res.status(403).send({ message: 'Erro' })
+    res.status(403).send({ message: err })
   }
 }
 
