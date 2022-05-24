@@ -19,7 +19,4 @@ try {
 } catch (e) {
   console.error(e)
   console.log('Não conectado ao bd')
-  app.listen(port, () => {
-    console.log(`Serever running at port ${port}`)
-  })
 }
